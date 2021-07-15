@@ -1,0 +1,13 @@
+---
+version: "3.8"
+
+services:
+  spotify-auth-proxy:
+    image: ghcr.io/conradludgate/spotify-auth-proxy
+    ports:
+      - 27228:27228
+    environment:
+      - SPOTIFY_CLIENT_REDIRECT_URI=http://localhost:27228/spotify_callback
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+    restart: unless-stopped
