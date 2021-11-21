@@ -6,9 +6,9 @@ locals {
 data "spotify_search_track" "cookout" {
   for_each = { for row in local.cookout : join(",", [row.artist, row.album, row.track]) => row }
 
-  artists = [each.value.artist]
-  album   = each.value.album
-  name    = each.value.track
+  artist = each.value.artist
+  album  = each.value.album
+  name   = each.value.track
 }
 
 resource "spotify_playlist" "cookout" {
@@ -24,9 +24,9 @@ resource "spotify_playlist" "cookout" {
 data "spotify_search_track" "workout" {
   for_each = { for row in local.workout : join(",", [row.artist, row.album, row.track]) => row }
 
-  artists = [each.value.artist]
-  album   = each.value.album
-  name    = each.value.track
+  artist = each.value.artist
+  album  = each.value.album
+  name   = each.value.track
 }
 
 resource "spotify_playlist" "workout" {
