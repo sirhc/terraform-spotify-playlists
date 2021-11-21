@@ -7,7 +7,6 @@ terraform {
 
   required_providers {
     spotify = {
-      version = "~> 0.1.5"
       source  = "conradludgate/spotify"
     }
   }
